@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="./JapaneseDate.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>和暦西暦変換</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <p>※入力値を変更するとそれぞれのフォーマットに変換されて出力されます</p>
+        <label>入力値</label>
+        <input id="date-from" type="text" class="form-control" value="2017/04/05">
+      </div>
+      <div class="col-md-6">
+        <p>
+          <label>format: Jk年MM月DD日</label>
+          <input id="date-to" type="text" class="form-control" value="">
+        </p>
+        <p>
+          <label>format: YYYY-MM-DD</label>
+          <input id="date-to2" type="text" class="form-control" value="">
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>対応フォーマット</h2> 例：date = new Date('1989-02-01');
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>文字</th>
+              <th>フォーマット後</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>YYYY</td>
+              <td>1989</td>
+            </tr>
+            <tr>
+              <td>MM</td>
+              <td>02</td>
+            </tr>
+            <tr>
+              <td>DD</td>
+              <td>01</td>
+            </tr>
+            <tr>
+              <td>J</td>
+              <td>平成</td>
+            </tr>
+            <tr>
+              <td>b</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>K</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>k</td>
+              <td>元</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>関数</h3>
+        <h4>フォーマット</h4>
+        <p>
+          JapaneseDate.format([Dateオブジェクト], [フォーマット文字列]);
+        </p>
+        <h4>文字列をDateオブジェクトに変換</h4>
+        <p>
+          JapaneseDate.parseStringToDate([変換対象文字列]);
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>使い方</h3> Dateオブジェクトを生成して、フォーマットするだけです
+        <br>
+        <pre>
+          <code>
+let date = new Date('2017-01-03');
+console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));
+出力：平成29年01月03日
+      </code>
+      </pre>
+      文字列をDateオブジェクトに変換し、フォーマットして出力
+      <pre>
+        <code>
+let date = JapaneseDate.parseStringToDate('H29/01/02');
+console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));
+出力：平成29年01月02日
+        </code>
+      </pre>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      convertDate();
+      $('#date-from').on('keyup', convertDate);
+    });
+
+    const convertDate = function() {
+      let date = JapaneseDate.parseStringToDate($('#date-from').val());
+      $('#date-to').val(JapaneseDate.format(date, 'Jk年MM月DD日'));
+      $('#date-to2').val(JapaneseDate.format(date, 'YYYY-MM-DD'));
+    };
+  </script>
+</body>
+
+</html>
