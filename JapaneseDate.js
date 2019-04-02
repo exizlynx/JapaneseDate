@@ -2,26 +2,32 @@
  * 和暦変換
  */
 const JapaneseDate = {
-  eraTypes: [{
+  eraTypes: [
+    {
+      'name': '令和',
+      'name_short': 'R',
+      'timestamp': new Date(2019, 4, 1)
+    },
+    {
       'name': '平成',
       'name_short': 'H',
-      'timestamp': new Date(1989, 1, 8)
+      'timestamp': new Date(1989, 0, 8)
     },
     {
       'name': '昭和',
       'name_short': 'S',
-      'timestamp': new Date(1926, 12, 25)
+      'timestamp': new Date(1926, 11, 25)
     },
     {
       'name': '大正',
       'name_short': 'T',
-      'timestamp': new Date(1912, 7, 30)
+      'timestamp': new Date(1912, 6, 30)
     },
     {
       'name': '明治',
       'name_short': 'M',
-      'timestamp': new Date(1868, 1, 25)
-    },
+      'timestamp': new Date(1868, 0, 25)
+    }
   ],
   dateToJpn: function(targetDate, formatKey) {
     for (let i = 0; i < this.eraTypes.length; i++) {
@@ -30,12 +36,12 @@ const JapaneseDate = {
         if (formatKey === 'b') return obj.name_short;
         if (formatKey === 'J') return obj.name;
         targetDate = new Date(
-          targetDate.getYear() - (obj.timestamp.getYear() - 1),
+          targetDate.getUTCFullYear() - (obj.timestamp.getUTCFullYear() - 1),
           targetDate.getMonth(),
           targetDate.getDate()
         );
         if (formatKey === 'k' || formatKey === 'K') {
-          let dispEra = targetDate.getFullYear().toString().substr(-2);
+          let dispEra = targetDate.getUTCFullYear().toString().substr(-2);
           if (formatKey === 'k' && dispEra.toString() === '1') dispEra = '元';
           return dispEra;
         }
@@ -65,7 +71,7 @@ const JapaneseDate = {
       for (var i = 0; i < this.eraTypes.length; i++) {
         let obj = this.eraTypes[i];
         if (data[1] == obj.name_short) {
-          let newYear = parseInt(data[2], 10) + (obj.timestamp.getFullYear() - 1);
+          let newYear = parseInt(data[2], 10) + (obj.timestamp.getUTCFullYear() - 1);
           return new Date(
             newYear,
             parseInt(data[3], 10) - 1,
@@ -90,7 +96,7 @@ const JapaneseDate = {
       for (var i = 0; i < this.eraTypes.length; i++) {
         let obj = this.eraTypes[i];
         if (data[1] == obj.name) {
-          let newYear = parseInt(data[2], 10) + (obj.timestamp.getFullYear() - 1);
+          let newYear = parseInt(data[2], 10) + (obj.timestamp.getUTCFullYear() - 1);
           return new Date(
             newYear,
             parseInt(data[3], 10) - 1,
@@ -110,7 +116,7 @@ const JapaneseDate = {
   format: function(date, format) {
     if (!date) return '';
     if (!format) format = 'YYYY-MM-DD hh:mm:ss.SSS';
-    format = format.replace(/YYYY/g, date.getFullYear());
+    format = format.replace(/YYYY/g, date.getUTCFullYear());
     format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
     format = format.replace(/DD/g, ('0' + date.getDate()).slice(-2));
     format = format.replace(/hh/g, ('0' + date.getHours()).slice(-2));
