@@ -16,7 +16,7 @@ test("ConvertJapaneseDate", () => {
   expect(JapaneseDate.format(new Date("1989-10-10"), "Jk年MM月DD日")).toBe(
     "平成元年10月10日"
   );
-  expect(JapaneseDate.format(new Date("1500-10-10"), "Jk年MM月DD日")).toBe(
+  expect(JapaneseDate.format(new Date("600-10-10"), "Jk年MM月DD日")).toBe(
     "年10月10日"
   );
   expect(JapaneseDate.format(new Date("1985-04-01T12:31:15"), null)).toBe(
