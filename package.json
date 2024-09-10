@@ -2,7 +2,7 @@
   "name": "japanese-date-format",
   "version": "1.0.0",
   "description": "Convert Date object to Japanese notation",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsup",
@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/exizlynx/JapaneseDate#readme",
   "devDependencies": {
-    "@swc/core": "^1.7.24",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
