@@ -10,8 +10,8 @@ export default defineConfig({
   sourcemap: false,
   outExtension({ format }) {
     return {
-      js: format === 'iife' ? '.dist.js' : format === 'cjs' ? '.js' : '.mjs',
-    }
+      js: format === "iife" ? ".dist.js" : format === "cjs" ? ".js" : ".mjs",
+    };
   },
   footer: ({ format }) => {
     if (format === "iife") {
