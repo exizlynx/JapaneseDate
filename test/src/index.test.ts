@@ -1,4 +1,4 @@
-import JapaneseDate from "../../src";
+import JapaneseDate from "../../src/japanese-date";
 
 test("ConvertJapaneseDate", () => {
   expect(JapaneseDate.format(new Date("2024-09-09"), "Jk年MM月DD日")).toBe(

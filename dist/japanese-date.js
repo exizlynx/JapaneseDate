@@ -1,3 +1,29 @@
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/japanese-date.ts
+var japanese_date_exports = {};
+__export(japanese_date_exports, {
+  default: () => japanese_date_default
+});
+module.exports = __toCommonJS(japanese_date_exports);
+
 // src/eraTypes.ts
 var eraTypes = [
   {
@@ -842,7 +868,7 @@ var eraTypes = [
   }
 ];
 
-// src/index.ts
+// src/japanese-date.ts
 var JapaneseDate = {
   dateToJpn: function(targetDate, formatKey) {
     for (let i = 0; i < eraTypes.length; i++) {
@@ -980,7 +1006,4 @@ var JapaneseDate = {
     return list;
   }
 };
-var src_default = JapaneseDate;
-export {
-  src_default as default
-};
+var japanese_date_default = JapaneseDate;
