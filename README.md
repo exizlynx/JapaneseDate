@@ -25,8 +25,6 @@ JapaneseDate.parseStringToDate([変換対象文字列]);
 
 ### 使い方 Dateオブジェクトを生成して、フォーマットするだけです
 
-
-
 ```javascript
 let date = new Date('2017-01-03');  
 console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));  

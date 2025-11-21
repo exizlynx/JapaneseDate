@@ -1,141 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=yes"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1>和暦西暦変換</h1>
-      <hr />
-      <div class="row">
-        <div class="col-md-6">
-          <p>
-            ※入力値を変更するとそれぞれのフォーマットに変換されて出力されます
-          </p>
-          <label>入力値</label>
-          <input
-            id="date-from"
-            type="text"
-            class="form-control"
-            value="2019/05/01"
-          />
-        </div>
-        <div class="col-md-6">
-          <p>
-            <label>format: Jk年MM月DD日</label>
-            <input id="date-to" type="text" class="form-control" value="" />
-          </p>
-          <p>
-            <label>format: YYYY-MM-DD</label>
-            <input id="date-to2" type="text" class="form-control" value="" />
-          </p>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-md-12">
-          <h2>対応フォーマット</h2>
-          例：date = new Date('1989-02-01');
-          <table class="pure-table pure-table-bordered">
-            <thead>
-              <tr>
-                <th>文字</th>
-                <th>フォーマット後</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>YYYY</td>
-                <td>1989</td>
-              </tr>
-              <tr>
-                <td>MM</td>
-                <td>02</td>
-              </tr>
-              <tr>
-                <td>DD</td>
-                <td>01</td>
-              </tr>
-              <tr>
-                <td>J</td>
-                <td>平成</td>
-              </tr>
-              <tr>
-                <td>b</td>
-                <td>H</td>
-              </tr>
-              <tr>
-                <td>K</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>k</td>
-                <td>元</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-md-12">
-          <h3>関数</h3>
-          <h4>フォーマット</h4>
-          <p>JapaneseDate.format([Dateオブジェクト], [フォーマット文字列]);</p>
-          <h4>文字列をDateオブジェクトに変換</h4>
-          <p>JapaneseDate.parseStringToDate([変換対象文字列]);</p>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-md-12">
-          <h3>使い方</h3>
-          Dateオブジェクトを生成して、フォーマットするだけです
-          <br />
-          <pre>
-          <code>
-let date = new Date('2017-01-03');
-console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));
-出力：平成29年01月03日
-      </code>
-      </pre>
-          文字列をDateオブジェクトに変換し、フォーマットして出力
-          <pre>
-        <code>
-let date = JapaneseDate.parseStringToDate('H29/01/02');
-console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));
-出力：平成29年01月02日
-        </code>
-      </pre>
-        </div>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JapaneseDate Test & Demo</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            color: #e83e8c;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .demo-section {
+            margin-top: 20px;
+        }
+
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+    </style>
+    <!-- Load the library -->
+    <script src="./dist/japanese-date.dist.js"></script>
+</head>
+
+<body>
+    <h1>JapaneseDate Library Demo</h1>
+
+    <div class="card">
+        <h2>概要</h2>
+        <p><code>JapaneseDate</code> は、JavaScriptのDateオブジェクトを日本の元号表記などに変換するライブラリです。</p>
+        <p>このページでは、ブラウザで直接読み込んだ場合の動作確認ができます。</p>
     </div>
-    <script type="module">
-      import JapaneseDate from "./dist/index.js";
-      document.addEventListener("DOMContentLoaded", () => {
-        const date = JapaneseDate.parseStringToDate(
-          document.getElementById("date-from").value
-        );
-        document.getElementById("date-to").value = JapaneseDate.format(
-          date,
-          "Jk年MM月DD日"
-        );
-        document.getElementById("date-to2").value = JapaneseDate.format(
-          date,
-          "YYYY-MM-DD"
-        );
-      });
+
+    <div class="card">
+        <h2>基本的な使い方</h2>
+        <pre><code>// 現在時刻でフォーマット
+console.log(JapaneseDate.format(new Date(), "Jk年MM月DD日")); // 例: 令和06年11月21日
+
+// 特定の日付でフォーマット
+const date = new Date("2024-01-01");
+console.log(JapaneseDate.format(date, "bK.MM.DD")); // 例: R06.01.01</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>インタラクティブデモ</h2>
+        <div class="demo-section">
+            <p>日付を選択して変換を試せます：</p>
+            <input type="date" id="dateInput">
+            <button onclick="convertDate()">変換する</button>
+
+            <div id="resultArea" style="display: none;">
+                <h3>変換結果:</h3>
+                <div class="result-box" id="output1"></div>
+                <div class="result-box" id="output2"></div>
+                <div class="result-box" id="output3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set default date to today
+        document.getElementById('dateInput').valueAsDate = new Date();
+
+        function convertDate() {
+            const input = document.getElementById('dateInput').value;
+            const date = input ? new Date(input) : new Date();
+
+            try {
+                // Check if JapaneseDate is available
+                if (typeof JapaneseDate === 'undefined') {
+                    alert('JapaneseDate library is not loaded correctly!');
+                    return;
+                }
+
+                // JapaneseDate is a static object, not a class
+                const result1 = JapaneseDate.format(date, "Jk年MM月DD日");
+                const result2 = JapaneseDate.format(date, "bK.MM.DD");
+
+                const resultArea = document.getElementById('resultArea');
+                const output1 = document.getElementById('output1');
+                const output2 = document.getElementById('output2');
+                const output3 = document.getElementById('output3');
+
+                output1.textContent = `Jk年MM月DD日: ${result1}`;
+                output2.textContent = `bK.MM.DD: ${result2}`;
+                output3.textContent = `Full Date: ${date.toString()}`;
+
+                resultArea.style.display = 'block';
+            } catch (e) {
+                console.error(e);
+                alert('Error: ' + e.message);
+            }
+        }
+
+        // Initial conversion
+        window.onload = () => {
+            if (typeof JapaneseDate !== 'undefined') {
+                console.log("JapaneseDate library loaded successfully");
+                convertDate();
+            } else {
+                console.error("JapaneseDate library failed to load");
+                document.body.innerHTML += '<div style="color: red; padding: 20px; background: #fee;">Error: JapaneseDate library not found. Check the script path.</div>';
+            }
+        };
     </script>
-  </body>
+</body>
+
 </html>
