@@ -1,6 +1,13 @@
-対応フォーマット  
-例：date = new Date('1989-02-01');
+# How to use
 
+```javascript
+import JapaneseDate from "japanese-date-format";
+
+const date = new Date();
+console.log(JapaneseDate.format(date, "Jk年MM月DD日"));
+```
+
+### 対応フォーマット
 
 | 文字 | フォーマット後 |
 | ---- | -------------- |
@@ -16,25 +23,32 @@
 
 #### フォーマット
 
+```javascript
+import JapaneseDate from "japanese-date-format";
 JapaneseDate.format([Dateオブジェクト], [フォーマット文字列]);
-
+```
 
 #### 文字列をDateオブジェクトに変換
 
+```javascript
+import JapaneseDate from "japanese-date-format";
 JapaneseDate.parseStringToDate([変換対象文字列]);
+```
 
 ### 使い方 Dateオブジェクトを生成して、フォーマットするだけです
 
 ```javascript
-let date = new Date('2017-01-03');  
-console.log(JapaneseDate.format(date, 'Jk年MM月DD日'));  
+let date = new Date("2017-01-03");
+console.log(JapaneseDate.format(date, "Jk年MM月DD日"));
 ```
+
 出力：平成29年01月03日
 
-文字列をDateオブジェクトに変換し、フォーマットして出力
+#### 文字列をDateオブジェクトに変換し、フォーマットして出力
 
 ```javascript
-let date = JapaneseDate.parseStringToDate('H29/01/02');  
-console.log(JapaneseDate.format(date, 'Jk年MM月DD日')); 
+let date = JapaneseDate.parseStringToDate("H29/01/02");
+console.log(JapaneseDate.format(date, "Jk年MM月DD日"));
 ```
+
 出力：平成29年01月02日
