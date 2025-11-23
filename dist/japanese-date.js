@@ -1009,5 +1009,4 @@ var JapaneseDate = (() => {
   var japanese_date_default = JapaneseDate;
   return __toCommonJS(japanese_date_exports);
 })();
-if (typeof JapaneseDate !== 'undefined' && JapaneseDate.default) { JapaneseDate = JapaneseDate.default; }
-//# sourceMappingURL=japanese-date.dist.js.map
+//# sourceMappingURL=japanese-date.js.map
