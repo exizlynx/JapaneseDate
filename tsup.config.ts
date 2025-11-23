@@ -7,10 +7,10 @@ export default defineConfig({
   format: ["iife", "cjs", "esm"],
   clean: true,
   dts: true,
-  sourcemap: false,
+  sourcemap: true,
   outExtension({ format }) {
     return {
-      js: format === "iife" ? ".dist.js" : format === "cjs" ? ".js" : ".mjs",
+      js: format === "iife" ? ".dist.js" : format === "cjs" ? ".cjs" : ".mjs",
     };
   },
   footer: ({ format }) => {

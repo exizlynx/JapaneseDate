@@ -1007,3 +1007,4 @@ var JapaneseDate = {
   }
 };
 var japanese_date_default = JapaneseDate;
+//# sourceMappingURL=japanese-date.cjs.map
