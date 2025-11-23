@@ -984,3 +984,4 @@ var japanese_date_default = JapaneseDate;
 export {
   japanese_date_default as default
 };
+//# sourceMappingURL=japanese-date.mjs.map
