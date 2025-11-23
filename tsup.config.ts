@@ -3,21 +3,14 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   globalName: "JapaneseDate",
   entry: ["src/japanese-date.ts"],
-  target: "es2016",
+  target: "node18",
   format: ["iife", "cjs", "esm"],
   clean: true,
   dts: true,
   sourcemap: true,
   outExtension({ format }) {
     return {
-      js: format === "iife" ? ".dist.js" : format === "cjs" ? ".cjs" : ".mjs",
+      js: format === "iife" ? ".js" : format === "cjs" ? ".cjs" : ".mjs",
     };
-  },
-  footer: ({ format }) => {
-    if (format === "iife") {
-      return {
-        js: "if (typeof JapaneseDate !== 'undefined' && JapaneseDate.default) { JapaneseDate = JapaneseDate.default; }",
-      };
-    }
   },
 });
