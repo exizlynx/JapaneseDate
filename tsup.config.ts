@@ -15,4 +15,11 @@ export default defineConfig({
       js: format === "iife" ? ".js" : format === "cjs" ? ".cjs" : ".mjs",
     };
   },
+  footer: ({ format }) => {
+    if (format === "iife") {
+      return {
+        js: "window.JapaneseDate = JapaneseDate.default || JapaneseDate;",
+      };
+    }
+  },
 });
