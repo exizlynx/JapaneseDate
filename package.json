@@ -1,6 +1,6 @@
 {
   "name": "japanese-date-format",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Convert Date object to Japanese notation",
   "main": "./dist/japanese-date.cjs",
   "module": "./dist/japanese-date.mjs",
@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/exizlynx/JapaneseDate/issues"
   },
-  "homepage": "https://github.com/exizlynx/JapaneseDate#readme",
+  "homepage": "https://exizlynx.github.io/JapaneseDate/",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.4.0",

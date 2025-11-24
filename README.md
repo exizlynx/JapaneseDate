@@ -1,4 +1,24 @@
-# How to use
+# JapaneseDate
+
+![CI](https://github.com/exizlynx/JapaneseDate/actions/workflows/ci.yml/badge.svg)
+[![npm version](https://badge.fury.io/js/japanese-date-format.svg)](https://badge.fury.io/js/japanese-date-format)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+<img src="docs/icon.svg" width="64" alt="JapaneseDate Icon" />
+
+## Overview
+
+`JapaneseDate` is a library for converting JavaScript Date objects into Japanese era notation and other formats.
+
+## Installation
+
+```bash
+npm install japanese-date-format
+# or
+yarn add japanese-date-format
+```
+
+## Usage
 
 ```javascript
 import JapaneseDate from "japanese-date-format";

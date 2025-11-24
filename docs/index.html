@@ -3,8 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
     <title>JapaneseDate</title>
     <style>
+      [data-lang] {
+        display: none;
+      }
+      body.lang-ja [data-lang="ja"] {
+        display: block;
+      }
+      body.lang-en [data-lang="en"] {
+        display: block;
+      }
+      /* Handle inline elements if necessary, or just use utility classes */
       body {
         font-family:
           "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
@@ -119,12 +130,15 @@
       style="
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         border-bottom: 2px solid #2c3e50;
         padding-bottom: 10px;
         margin-bottom: 20px;
       "
     >
+      <figure>
+        <img src="./icon.svg" width="64" height="64" alt="JapaneseDate" />
+      </figure>
       <h1 style="border-bottom: none; padding-bottom: 0; margin: 0">
         JapaneseDate
       </h1>
@@ -133,7 +147,7 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View on GitHub"
-        style="color: #333; text-decoration: none"
+        style="color: #333; text-decoration: none; margin-left: auto"
       >
         <svg
           height="32"
@@ -152,7 +166,7 @@
     </div>
 
     <div class="card">
-      <h2>概要</h2>
+      <h2>Overview</h2>
       <p>
         <code>JapaneseDate</code>
         は、JavaScriptのDateオブジェクトを日本の元号表記などに変換するライブラリです。
@@ -161,13 +175,20 @@
     </div>
 
     <div class="card">
-      <h2>対応フォーマット</h2>
-      <p>例：date = new Date('1989-02-01');</p>
+      <h2>Installation</h2>
+      <pre><code>npm install japanese-date-format
+# or
+yarn add japanese-date-format</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Supported formats</h2>
+      <p>Example: date = new Date('1989-02-01');</p>
       <table>
         <thead>
           <tr>
-            <th>文字</th>
-            <th>フォーマット後</th>
+            <th>Characters</th>
+            <th>Format</th>
           </tr>
         </thead>
         <tbody>
