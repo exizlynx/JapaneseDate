@@ -1,6 +1,6 @@
 {
   "name": "japanese-date-format",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Convert Date object to Japanese notation",
   "main": "./dist/japanese-date.cjs",
   "module": "./dist/japanese-date.mjs",
@@ -29,7 +29,8 @@
   },
   "keywords": [
     "date",
-    "japanese"
+    "japanese",
+    "convert"
   ],
   "author": "ExiZ",
   "license": "MIT",
