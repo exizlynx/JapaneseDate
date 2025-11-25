@@ -289,7 +289,7 @@ const eraTypes: EraType[] = [
   {
     name: "永享",
     name_short: "Eikyo",
-    timestamp: new Date("1429-09-06T00:00:00"),
+    timestamp: new Date("1429-09-05T00:00:00"),
   },
   {
     name: "応永",
@@ -552,11 +552,6 @@ const eraTypes: EraType[] = [
     timestamp: new Date("1096-03-12T00:00:00"),
   },
   {
-    name: "康保",
-    name_short: "Ko",
-    timestamp: new Date("1092-12-15T00:00:00"),
-  },
-  {
     name: "寛治",
     name_short: "Kan",
     timestamp: new Date("1087-11-16T00:00:00"),
@@ -592,7 +587,7 @@ const eraTypes: EraType[] = [
     timestamp: new Date("1060-07-13T00:00:00"),
   },
   {
-    name: "康平",
+    name: "康保",
     name_short: "Ko",
     timestamp: new Date("1058-08-29T00:00:00"),
   },
@@ -634,7 +629,7 @@ const eraTypes: EraType[] = [
   {
     name: "永延",
     name_short: "Ei",
-    timestamp: new Date("987-08-27T00:00:00"),
+    timestamp: new Date("987-04-05T00:00:00"),
   },
   {
     name: "寛和",
@@ -659,7 +654,7 @@ const eraTypes: EraType[] = [
   {
     name: "天徳",
     name_short: "Ten",
-    timestamp: new Date("947-04-22T00:00:00"),
+    timestamp: new Date("957-04-22T00:00:00"),
   },
   {
     name: "応和",
@@ -667,7 +662,7 @@ const eraTypes: EraType[] = [
     timestamp: new Date("961-08-16T00:00:00"),
   },
   {
-    name: "康和",
+    name: "康保",
     name_short: "Ko",
     timestamp: new Date("964-08-08T00:00:00"),
   },
@@ -675,11 +670,6 @@ const eraTypes: EraType[] = [
     name: "長保",
     name_short: "Cho",
     timestamp: new Date("998-12-07T00:00:00"),
-  },
-  {
-    name: "長寛",
-    name_short: "Cho",
-    timestamp: new Date("1111-02-09T00:00:00"),
   },
   {
     name: "天暦",
