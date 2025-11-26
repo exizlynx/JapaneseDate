@@ -1,5 +1,19 @@
 import { EraType } from "./types/eraType";
 
+/**
+ * 日付を生成
+ * @param y 
+ * @param m 
+ * @param d 
+ * @returns 
+ */
+const createHistoricalDate = (y: number, m: number, d: number): Date => {
+  const date = new Date(0);
+  date.setFullYear(y, m - 1, d);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
 const eraTypes: EraType[] = [
   {
     name: "令和",
@@ -289,7 +303,7 @@ const eraTypes: EraType[] = [
   {
     name: "永享",
     name_short: "Eikyo",
-    timestamp: new Date("1429-09-05T00:00:00"),
+    timestamp: new Date("1429-09-06T00:00:00"),
   },
   {
     name: "応永",
@@ -552,6 +566,11 @@ const eraTypes: EraType[] = [
     timestamp: new Date("1096-03-12T00:00:00"),
   },
   {
+    name: "康保",
+    name_short: "Ko",
+    timestamp: new Date("1092-12-15T00:00:00"),
+  },
+  {
     name: "寛治",
     name_short: "Kan",
     timestamp: new Date("1087-11-16T00:00:00"),
@@ -587,7 +606,7 @@ const eraTypes: EraType[] = [
     timestamp: new Date("1060-07-13T00:00:00"),
   },
   {
-    name: "康保",
+    name: "康平",
     name_short: "Ko",
     timestamp: new Date("1058-08-29T00:00:00"),
   },
@@ -624,22 +643,22 @@ const eraTypes: EraType[] = [
   {
     name: "長徳",
     name_short: "Cho",
-    timestamp: new Date("995-02-22T00:00:00"),
+    timestamp: createHistoricalDate(995, 2, 22),
   },
   {
     name: "永延",
     name_short: "Ei",
-    timestamp: new Date("987-04-05T00:00:00"),
+    timestamp: createHistoricalDate(987, 8, 27),
   },
   {
     name: "寛和",
     name_short: "Kan",
-    timestamp: new Date("985-04-27T00:00:00"),
+    timestamp: createHistoricalDate(985, 4, 27),
   },
   {
     name: "天元",
     name_short: "Ten",
-    timestamp: new Date("978-12-17T00:00:00"),
+    timestamp: createHistoricalDate(978, 12, 17),
   },
   {
     name: "寛弘",
@@ -649,187 +668,192 @@ const eraTypes: EraType[] = [
   {
     name: "正暦",
     name_short: "Sho",
-    timestamp: new Date("990-08-08T00:00:00"),
+    timestamp: createHistoricalDate(990, 8, 8),
   },
   {
     name: "天徳",
     name_short: "Ten",
-    timestamp: new Date("957-04-22T00:00:00"),
+    timestamp: createHistoricalDate(947, 4, 22),
   },
   {
     name: "応和",
     name_short: "O",
-    timestamp: new Date("961-08-16T00:00:00"),
+    timestamp: createHistoricalDate(961, 8, 16),
   },
   {
-    name: "康保",
+    name: "康和",
     name_short: "Ko",
-    timestamp: new Date("964-08-08T00:00:00"),
+    timestamp: createHistoricalDate(964, 8, 8),
   },
   {
     name: "長保",
     name_short: "Cho",
-    timestamp: new Date("998-12-07T00:00:00"),
+    timestamp: createHistoricalDate(998, 12, 7),
+  },
+  {
+    name: "長寛",
+    name_short: "Cho",
+    timestamp: new Date("1111-02-09T00:00:00"),
   },
   {
     name: "天暦",
     name_short: "Ten",
-    timestamp: new Date("947-11-21T00:00:00"),
+    timestamp: createHistoricalDate(947, 11, 21),
   },
   {
     name: "天慶",
     name_short: "Ten",
-    timestamp: new Date("938-05-22T00:00:00"),
+    timestamp: createHistoricalDate(938, 5, 22),
   },
   {
     name: "延長",
     name_short: "En",
-    timestamp: new Date("923-04-11T00:00:00"),
+    timestamp: createHistoricalDate(923, 4, 11),
   },
   {
     name: "承平",
     name_short: "Sho",
-    timestamp: new Date("931-04-26T00:00:00"),
+    timestamp: createHistoricalDate(931, 4, 26),
   },
   {
     name: "延喜",
     name_short: "En",
-    timestamp: new Date("901-07-15T00:00:00"),
+    timestamp: createHistoricalDate(901, 7, 15),
   },
   {
     name: "昌泰",
     name_short: "Sho",
-    timestamp: new Date("898-04-26T00:00:00"),
+    timestamp: createHistoricalDate(898, 4, 26),
   },
   {
     name: "寛平",
     name_short: "Kan",
-    timestamp: new Date("889-04-27T00:00:00"),
+    timestamp: createHistoricalDate(889, 4, 27),
   },
   {
     name: "元慶",
     name_short: "Gen",
-    timestamp: new Date("877-04-16T00:00:00"),
+    timestamp: createHistoricalDate(877, 4, 16),
   },
   {
     name: "仁寿",
     name_short: "Ni",
-    timestamp: new Date("851-07-16T00:00:00"),
+    timestamp: createHistoricalDate(851, 7, 16),
   },
   {
     name: "嘉祥",
     name_short: "Ka",
-    timestamp: new Date("848-06-13T00:00:00"),
+    timestamp: createHistoricalDate(848, 6, 13),
   },
   {
     name: "承和",
     name_short: "Sho",
-    timestamp: new Date("834-01-03T00:00:00"),
+    timestamp: createHistoricalDate(834, 1, 3),
   },
   {
     name: "天長",
     name_short: "Ten",
-    timestamp: new Date("824-02-08T00:00:00"),
+    timestamp: createHistoricalDate(824, 2, 8),
   },
   {
     name: "弘仁",
     name_short: "Ko",
-    timestamp: new Date("810-10-20T00:00:00"),
+    timestamp: createHistoricalDate(810, 10, 20),
   },
   {
     name: "大同",
     name_short: "Da",
-    timestamp: new Date("806-05-18T00:00:00"),
+    timestamp: createHistoricalDate(806, 5, 18),
   },
   {
     name: "延暦",
     name_short: "En",
-    timestamp: new Date("782-08-19T00:00:00"),
+    timestamp: createHistoricalDate(782, 8, 19),
   },
   {
     name: "天応",
     name_short: "Ten",
-    timestamp: new Date("781-01-01T00:00:00"),
+    timestamp: createHistoricalDate(781, 1, 1),
   },
   {
     name: "宝亀",
     name_short: "Ho",
-    timestamp: new Date("770-10-01T00:00:00"),
+    timestamp: createHistoricalDate(770, 10, 1),
   },
   {
     name: "神護景雲",
     name_short: "Shin",
-    timestamp: new Date("767-08-16T00:00:00"),
+    timestamp: createHistoricalDate(767, 8, 16),
   },
   {
     name: "天平神護",
     name_short: "Ten",
-    timestamp: new Date("765-01-07T00:00:00"),
+    timestamp: createHistoricalDate(765, 1, 7),
   },
   {
     name: "天平宝字",
     name_short: "Ten",
-    timestamp: new Date("757-08-18T00:00:00"),
+    timestamp: createHistoricalDate(757, 8, 18),
   },
   {
     name: "天平勝宝",
     name_short: "Ten",
-    timestamp: new Date("749-07-02T00:00:00"),
+    timestamp: createHistoricalDate(749, 7, 2),
   },
   {
     name: "天平感宝",
     name_short: "Ten",
-    timestamp: new Date("749-04-14T00:00:00"),
+    timestamp: createHistoricalDate(749, 4, 14),
   },
   {
     name: "天平",
     name_short: "Ten",
-    timestamp: new Date("729-08-05T00:00:00"),
+    timestamp: createHistoricalDate(729, 8, 5),
   },
   {
     name: "神亀",
     name_short: "Shin",
-    timestamp: new Date("724-02-04T00:00:00"),
+    timestamp: createHistoricalDate(724, 2, 4),
   },
   {
     name: "養老",
     name_short: "Yo",
-    timestamp: new Date("717-11-17T00:00:00"),
+    timestamp: createHistoricalDate(717, 11, 17),
   },
   {
     name: "霊亀",
     name_short: "Rei",
-    timestamp: new Date("715-09-03T00:00:00"),
+    timestamp: createHistoricalDate(715, 9, 3),
   },
   {
     name: "和銅",
     name_short: "Wa",
-    timestamp: new Date("708-01-11T00:00:00"),
+    timestamp: createHistoricalDate(708, 1, 11),
   },
   {
     name: "慶雲",
     name_short: "Kei",
-    timestamp: new Date("704-05-10T00:00:00"),
+    timestamp: createHistoricalDate(704, 5, 10),
   },
   {
     name: "大宝",
     name_short: "Tai",
-    timestamp: new Date("701-03-21T00:00:00"),
+    timestamp: createHistoricalDate(701, 3, 21),
   },
   {
     name: "朱鳥",
     name_short: "Su",
-    timestamp: new Date("686-08-14T00:00:00"),
+    timestamp: createHistoricalDate(686, 8, 14),
   },
   {
     name: "白雉",
     name_short: "Haku",
-    timestamp: new Date("650-03-22T00:00:00"),
+    timestamp: createHistoricalDate(650, 3, 22),
   },
   {
     name: "大化",
     name_short: "Tai",
-    timestamp: new Date("645-06-19T00:00:00"),
+    timestamp: createHistoricalDate(645, 6, 19),
   },
 ];
 

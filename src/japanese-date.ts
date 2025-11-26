@@ -1,6 +1,16 @@
 import { eraTypes } from "./eraTypes";
 import { EraType } from "./types/eraType";
 
+const eraNamesType1 = eraTypes.map((e) => e.name).join("|");
+const eraNamesType2 = eraTypes.map((e) => e.name_short).join("|");
+
+const regexType1 = new RegExp(
+  "^(" + eraNamesType1 + ")(\\d{1,3})年(\\d{1,2})[月](\\d{1,2})[日]+$"
+);
+const regexType2 = new RegExp(
+  "^(" + eraNamesType2 + ")(\\d{1,2})\\/?(\\d{1,2})\\/?(\\d{1,2})+$"
+);
+
 const JapaneseDate = {
   dateToJpn: function (targetDate: Date, formatKey: string): string {
     for (let i = 0; i < eraTypes.length; i++) {
@@ -30,39 +40,45 @@ const JapaneseDate = {
    * @returns {*}
    */
   parseStringToDate: function (dateString: string): Date | boolean {
-    let regExp: RegExp;
+    // format: 2001/02/03
+    let data: RegExpMatchArray | null = dateString.match(
+      /^(\d{1,4})\/(\d{1,2})\/(\d{1,2})/
+    );
+
     // format: 20010203
-    if (dateString.match(/^\d{4}\/?\d{1,2}\/?\d{1,2}/)) {
-      const data: RegExpMatchArray | null = dateString.match(
-        /^(\d{4})\/?(\d{1,2})\/?(\d{1,2})/
-      );
+    if (!data) {
+      data = dateString.match(/^(\d{4})(\d{2})(\d{2})/);
+    }
+
+    // format: 9990203
+    if (!data) {
+      data = dateString.match(/^(\d{3})(\d{2})(\d{2})/);
+    }
+
+    if (data) {
       return new Date(
-        parseInt(data![1], 10),
-        parseInt(data![2], 10) - 1,
-        parseInt(data![3], 10),
+        parseInt(data[1], 10),
+        parseInt(data[2], 10) - 1,
+        parseInt(data[3], 10),
         0,
         0,
         0,
         0
       );
     }
+
     // format: H210203
-    regExp = new RegExp(
-      "^([" +
-        this.getEraNameList(2).join("|") +
-        "]+)(\\d{1,2})\\/?(\\d{1,2})\\/?(\\d{1,2})+$"
-    );
-    if (dateString.match(regExp)) {
-      const data: RegExpMatchArray | null = dateString.match(regExp);
+    data = dateString.match(regexType2);
+    if (data) {
       for (let i = 0; i < eraTypes.length; i++) {
         const obj: EraType = eraTypes[i];
-        if (data![1] == obj.name_short) {
+        if (data[1] == obj.name_short) {
           const newYear =
-            parseInt(data![2], 10) + (obj.timestamp.getUTCFullYear() - 1);
+            parseInt(data[2], 10) + (obj.timestamp.getUTCFullYear() - 1);
           return new Date(
             newYear,
-            parseInt(data![3], 10) - 1,
-            parseInt(data![4], 10),
+            parseInt(data[3], 10) - 1,
+            parseInt(data[4], 10),
             0,
             0,
             0,
@@ -71,38 +87,33 @@ const JapaneseDate = {
         }
       }
     }
+
     // format 2001年02月03日
-    if (dateString.match(/^\d{4}[年]\d{1,2}[月]\d{1,2}[日]/)) {
-      const data: RegExpMatchArray | null = dateString.match(
-        /^(\d{4})[年](\d{1,2})[月](\d{1,2})[日]/
-      );
+    data = dateString.match(/^(\d{1,4})[年](\d{1,2})[月](\d{1,2})[日]/);
+    if (data) {
       return new Date(
-        parseInt(data![1], 10),
-        parseInt(data![2], 10) - 1,
-        parseInt(data![3], 10),
+        parseInt(data[1], 10),
+        parseInt(data[2], 10) - 1,
+        parseInt(data[3], 10),
         0,
         0,
         0,
         0
       );
     }
+
     // format: 平成21年2月3日
-    regExp = new RegExp(
-      "^([" +
-        this.getEraNameList(1).join("|") +
-        "]+)(\\d{1,3})年(\\d{1,2})[月](\\d{1,2})[日]+$"
-    );
-    if (dateString.match(regExp)) {
-      const data: RegExpMatchArray | null = dateString.match(regExp);
+    data = dateString.match(regexType1);
+    if (data) {
       for (let i = 0; i < eraTypes.length; i++) {
         const obj: EraType = eraTypes[i];
-        if (data![1] == obj.name) {
+        if (data[1] == obj.name) {
           const newYear =
-            parseInt(data![2], 10) + (obj.timestamp.getUTCFullYear() - 1);
+            parseInt(data[2], 10) + (obj.timestamp.getUTCFullYear() - 1);
           return new Date(
             newYear,
-            parseInt(data![3], 10) - 1,
-            parseInt(data![4], 10),
+            parseInt(data[3], 10) - 1,
+            parseInt(data[4], 10),
             0,
             0,
             0,

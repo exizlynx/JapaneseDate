@@ -1,4 +1,10 @@
 // src/eraTypes.ts
+var createHistoricalDate = (y, m, d) => {
+  const date = /* @__PURE__ */ new Date(0);
+  date.setFullYear(y, m - 1, d);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
 var eraTypes = [
   {
     name: "\u4EE4\u548C",
@@ -628,22 +634,22 @@ var eraTypes = [
   {
     name: "\u9577\u5FB3",
     name_short: "Cho",
-    timestamp: /* @__PURE__ */ new Date("995-02-22T00:00:00")
+    timestamp: createHistoricalDate(995, 2, 22)
   },
   {
     name: "\u6C38\u5EF6",
     name_short: "Ei",
-    timestamp: /* @__PURE__ */ new Date("987-08-27T00:00:00")
+    timestamp: createHistoricalDate(987, 8, 27)
   },
   {
     name: "\u5BDB\u548C",
     name_short: "Kan",
-    timestamp: /* @__PURE__ */ new Date("985-04-27T00:00:00")
+    timestamp: createHistoricalDate(985, 4, 27)
   },
   {
     name: "\u5929\u5143",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("978-12-17T00:00:00")
+    timestamp: createHistoricalDate(978, 12, 17)
   },
   {
     name: "\u5BDB\u5F18",
@@ -653,27 +659,27 @@ var eraTypes = [
   {
     name: "\u6B63\u66A6",
     name_short: "Sho",
-    timestamp: /* @__PURE__ */ new Date("990-08-08T00:00:00")
+    timestamp: createHistoricalDate(990, 8, 8)
   },
   {
     name: "\u5929\u5FB3",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("947-04-22T00:00:00")
+    timestamp: createHistoricalDate(947, 4, 22)
   },
   {
     name: "\u5FDC\u548C",
     name_short: "O",
-    timestamp: /* @__PURE__ */ new Date("961-08-16T00:00:00")
+    timestamp: createHistoricalDate(961, 8, 16)
   },
   {
     name: "\u5EB7\u548C",
     name_short: "Ko",
-    timestamp: /* @__PURE__ */ new Date("964-08-08T00:00:00")
+    timestamp: createHistoricalDate(964, 8, 8)
   },
   {
     name: "\u9577\u4FDD",
     name_short: "Cho",
-    timestamp: /* @__PURE__ */ new Date("998-12-07T00:00:00")
+    timestamp: createHistoricalDate(998, 12, 7)
   },
   {
     name: "\u9577\u5BDB",
@@ -683,166 +689,174 @@ var eraTypes = [
   {
     name: "\u5929\u66A6",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("947-11-21T00:00:00")
+    timestamp: createHistoricalDate(947, 11, 21)
   },
   {
     name: "\u5929\u6176",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("938-05-22T00:00:00")
+    timestamp: createHistoricalDate(938, 5, 22)
   },
   {
     name: "\u5EF6\u9577",
     name_short: "En",
-    timestamp: /* @__PURE__ */ new Date("923-04-11T00:00:00")
+    timestamp: createHistoricalDate(923, 4, 11)
   },
   {
     name: "\u627F\u5E73",
     name_short: "Sho",
-    timestamp: /* @__PURE__ */ new Date("931-04-26T00:00:00")
+    timestamp: createHistoricalDate(931, 4, 26)
   },
   {
     name: "\u5EF6\u559C",
     name_short: "En",
-    timestamp: /* @__PURE__ */ new Date("901-07-15T00:00:00")
+    timestamp: createHistoricalDate(901, 7, 15)
   },
   {
     name: "\u660C\u6CF0",
     name_short: "Sho",
-    timestamp: /* @__PURE__ */ new Date("898-04-26T00:00:00")
+    timestamp: createHistoricalDate(898, 4, 26)
   },
   {
     name: "\u5BDB\u5E73",
     name_short: "Kan",
-    timestamp: /* @__PURE__ */ new Date("889-04-27T00:00:00")
+    timestamp: createHistoricalDate(889, 4, 27)
   },
   {
     name: "\u5143\u6176",
     name_short: "Gen",
-    timestamp: /* @__PURE__ */ new Date("877-04-16T00:00:00")
+    timestamp: createHistoricalDate(877, 4, 16)
   },
   {
     name: "\u4EC1\u5BFF",
     name_short: "Ni",
-    timestamp: /* @__PURE__ */ new Date("851-07-16T00:00:00")
+    timestamp: createHistoricalDate(851, 7, 16)
   },
   {
     name: "\u5609\u7965",
     name_short: "Ka",
-    timestamp: /* @__PURE__ */ new Date("848-06-13T00:00:00")
+    timestamp: createHistoricalDate(848, 6, 13)
   },
   {
     name: "\u627F\u548C",
     name_short: "Sho",
-    timestamp: /* @__PURE__ */ new Date("834-01-03T00:00:00")
+    timestamp: createHistoricalDate(834, 1, 3)
   },
   {
     name: "\u5929\u9577",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("824-02-08T00:00:00")
+    timestamp: createHistoricalDate(824, 2, 8)
   },
   {
     name: "\u5F18\u4EC1",
     name_short: "Ko",
-    timestamp: /* @__PURE__ */ new Date("810-10-20T00:00:00")
+    timestamp: createHistoricalDate(810, 10, 20)
   },
   {
     name: "\u5927\u540C",
     name_short: "Da",
-    timestamp: /* @__PURE__ */ new Date("806-05-18T00:00:00")
+    timestamp: createHistoricalDate(806, 5, 18)
   },
   {
     name: "\u5EF6\u66A6",
     name_short: "En",
-    timestamp: /* @__PURE__ */ new Date("782-08-19T00:00:00")
+    timestamp: createHistoricalDate(782, 8, 19)
   },
   {
     name: "\u5929\u5FDC",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("781-01-01T00:00:00")
+    timestamp: createHistoricalDate(781, 1, 1)
   },
   {
     name: "\u5B9D\u4E80",
     name_short: "Ho",
-    timestamp: /* @__PURE__ */ new Date("770-10-01T00:00:00")
+    timestamp: createHistoricalDate(770, 10, 1)
   },
   {
     name: "\u795E\u8B77\u666F\u96F2",
     name_short: "Shin",
-    timestamp: /* @__PURE__ */ new Date("767-08-16T00:00:00")
+    timestamp: createHistoricalDate(767, 8, 16)
   },
   {
     name: "\u5929\u5E73\u795E\u8B77",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("765-01-07T00:00:00")
+    timestamp: createHistoricalDate(765, 1, 7)
   },
   {
     name: "\u5929\u5E73\u5B9D\u5B57",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("757-08-18T00:00:00")
+    timestamp: createHistoricalDate(757, 8, 18)
   },
   {
     name: "\u5929\u5E73\u52DD\u5B9D",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("749-07-02T00:00:00")
+    timestamp: createHistoricalDate(749, 7, 2)
   },
   {
     name: "\u5929\u5E73\u611F\u5B9D",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("749-04-14T00:00:00")
+    timestamp: createHistoricalDate(749, 4, 14)
   },
   {
     name: "\u5929\u5E73",
     name_short: "Ten",
-    timestamp: /* @__PURE__ */ new Date("729-08-05T00:00:00")
+    timestamp: createHistoricalDate(729, 8, 5)
   },
   {
     name: "\u795E\u4E80",
     name_short: "Shin",
-    timestamp: /* @__PURE__ */ new Date("724-02-04T00:00:00")
+    timestamp: createHistoricalDate(724, 2, 4)
   },
   {
     name: "\u990A\u8001",
     name_short: "Yo",
-    timestamp: /* @__PURE__ */ new Date("717-11-17T00:00:00")
+    timestamp: createHistoricalDate(717, 11, 17)
   },
   {
     name: "\u970A\u4E80",
     name_short: "Rei",
-    timestamp: /* @__PURE__ */ new Date("715-09-03T00:00:00")
+    timestamp: createHistoricalDate(715, 9, 3)
   },
   {
     name: "\u548C\u9285",
     name_short: "Wa",
-    timestamp: /* @__PURE__ */ new Date("708-01-11T00:00:00")
+    timestamp: createHistoricalDate(708, 1, 11)
   },
   {
     name: "\u6176\u96F2",
     name_short: "Kei",
-    timestamp: /* @__PURE__ */ new Date("704-05-10T00:00:00")
+    timestamp: createHistoricalDate(704, 5, 10)
   },
   {
     name: "\u5927\u5B9D",
     name_short: "Tai",
-    timestamp: /* @__PURE__ */ new Date("701-03-21T00:00:00")
+    timestamp: createHistoricalDate(701, 3, 21)
   },
   {
     name: "\u6731\u9CE5",
     name_short: "Su",
-    timestamp: /* @__PURE__ */ new Date("686-08-14T00:00:00")
+    timestamp: createHistoricalDate(686, 8, 14)
   },
   {
     name: "\u767D\u96C9",
     name_short: "Haku",
-    timestamp: /* @__PURE__ */ new Date("650-03-22T00:00:00")
+    timestamp: createHistoricalDate(650, 3, 22)
   },
   {
     name: "\u5927\u5316",
     name_short: "Tai",
-    timestamp: /* @__PURE__ */ new Date("645-06-19T00:00:00")
+    timestamp: createHistoricalDate(645, 6, 19)
   }
 ];
 
 // src/japanese-date.ts
+var eraNamesType1 = eraTypes.map((e) => e.name).join("|");
+var eraNamesType2 = eraTypes.map((e) => e.name_short).join("|");
+var regexType1 = new RegExp(
+  "^(" + eraNamesType1 + ")(\\d{1,3})\u5E74(\\d{1,2})[\u6708](\\d{1,2})[\u65E5]+$"
+);
+var regexType2 = new RegExp(
+  "^(" + eraNamesType2 + ")(\\d{1,2})\\/?(\\d{1,2})\\/?(\\d{1,2})+$"
+);
 var JapaneseDate = {
   dateToJpn: function(targetDate, formatKey) {
     for (let i = 0; i < eraTypes.length; i++) {
@@ -872,11 +886,16 @@ var JapaneseDate = {
    * @returns {*}
    */
   parseStringToDate: function(dateString) {
-    let regExp;
-    if (dateString.match(/^\d{4}\/?\d{1,2}\/?\d{1,2}/)) {
-      const data = dateString.match(
-        /^(\d{4})\/?(\d{1,2})\/?(\d{1,2})/
-      );
+    let data = dateString.match(
+      /^(\d{1,4})\/(\d{1,2})\/(\d{1,2})/
+    );
+    if (!data) {
+      data = dateString.match(/^(\d{4})(\d{2})(\d{2})/);
+    }
+    if (!data) {
+      data = dateString.match(/^(\d{3})(\d{2})(\d{2})/);
+    }
+    if (data) {
       return new Date(
         parseInt(data[1], 10),
         parseInt(data[2], 10) - 1,
@@ -887,11 +906,8 @@ var JapaneseDate = {
         0
       );
     }
-    regExp = new RegExp(
-      "^([" + this.getEraNameList(2).join("|") + "]+)(\\d{1,2})\\/?(\\d{1,2})\\/?(\\d{1,2})+$"
-    );
-    if (dateString.match(regExp)) {
-      const data = dateString.match(regExp);
+    data = dateString.match(regexType2);
+    if (data) {
       for (let i = 0; i < eraTypes.length; i++) {
         const obj = eraTypes[i];
         if (data[1] == obj.name_short) {
@@ -908,10 +924,8 @@ var JapaneseDate = {
         }
       }
     }
-    if (dateString.match(/^\d{4}[年]\d{1,2}[月]\d{1,2}[日]/)) {
-      const data = dateString.match(
-        /^(\d{4})[年](\d{1,2})[月](\d{1,2})[日]/
-      );
+    data = dateString.match(/^(\d{1,4})[年](\d{1,2})[月](\d{1,2})[日]/);
+    if (data) {
       return new Date(
         parseInt(data[1], 10),
         parseInt(data[2], 10) - 1,
@@ -922,11 +936,8 @@ var JapaneseDate = {
         0
       );
     }
-    regExp = new RegExp(
-      "^([" + this.getEraNameList(1).join("|") + "]+)(\\d{1,3})\u5E74(\\d{1,2})[\u6708](\\d{1,2})[\u65E5]+$"
-    );
-    if (dateString.match(regExp)) {
-      const data = dateString.match(regExp);
+    data = dateString.match(regexType1);
+    if (data) {
       for (let i = 0; i < eraTypes.length; i++) {
         const obj = eraTypes[i];
         if (data[1] == obj.name) {

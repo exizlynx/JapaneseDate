@@ -1,6 +1,6 @@
 {
   "name": "japanese-date-format",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "Convert Date object to Japanese notation",
   "main": "./dist/japanese-date.cjs",
   "module": "./dist/japanese-date.mjs",
@@ -10,9 +10,10 @@
   "exports": {
     ".": {
       "types": "./dist/japanese-date.d.ts",
+      "browser": "./dist/japanese-date.js",
       "import": "./dist/japanese-date.mjs",
       "require": "./dist/japanese-date.cjs",
-      "browser": "./dist/japanese-date.dist.js"
+      "default": "./dist/japanese-date.js"
     }
   },
   "scripts": {
