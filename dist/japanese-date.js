@@ -1020,5 +1020,5 @@ var JapaneseDate = (() => {
   var japanese_date_default = JapaneseDate;
   return __toCommonJS(japanese_date_exports);
 })();
-window.JapaneseDate = JapaneseDate.default || JapaneseDate;
+globalThis.JapaneseDate = JapaneseDate.default || JapaneseDate;
 //# sourceMappingURL=japanese-date.js.map
