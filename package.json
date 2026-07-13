@@ -48,20 +48,25 @@
     "url": "https://github.com/exizlynx/JapaneseDate/issues"
   },
   "homepage": "https://exizlynx.github.io/JapaneseDate/",
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
     "babel-jest": "^30.2.0",
-    "eslint": "^9.10.0",
+    "eslint": "^10.6.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^17.7.0",
     "jest": "^30.2.0",
     "prettier": "^3.3.3",
     "ts-jest": "^29.2.5",
-    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0"
   }
 }

@@ -8,7 +8,13 @@ export default defineConfig([
     target: "node18",
     format: ["cjs", "esm"],
     clean: true,
-    dts: true,
+    dts: {
+      compilerOptions: {
+        // tsup が dts ビルド時に baseUrl を強制注入するため、
+        // TypeScript 6 の非推奨エラー (TS5101) をここでのみ抑止する
+        ignoreDeprecations: "6.0",
+      },
+    },
     splitting: false,
     sourcemap: true,
     outDir: "dist",

@@ -1,28 +1,15 @@
-import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import prettier from "eslint-config-prettier";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-export default [
+export default tseslint.config(
   {
-    ignores: ["dist/**/*"],
+    ignores: ["dist/**/*", "coverage/**/*"],
   },
-  ...compat.extends(
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ),
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  prettier,
   {
     languageOptions: {
       globals: {
@@ -30,8 +17,6 @@ export default [
         ...globals.jest,
         ...globals.browser,
       },
-
-      parser: tsParser,
     },
 
     rules: {
@@ -52,4 +37,4 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
-];
+);
