@@ -49,7 +49,8 @@
   },
   "homepage": "https://exizlynx.github.io/JapaneseDate/",
   "overrides": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "browserslist": "^4.28.7"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
